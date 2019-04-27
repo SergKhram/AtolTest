@@ -20,11 +20,11 @@ class TestOpenSite():
         driver.quit()
 
     def test_open_site(self, test_setup):
-        searchText = 'Атол-Онлайн'
+        search_text = 'Атол-Онлайн'
         driver.get('https://www.google.ru')
-        driver.find_element_by_name('q').send_keys(searchText.decode('utf-8'))
+        driver.find_element_by_name('q').send_keys(search_text.decode('utf-8'))
         driver.find_element_by_name('q').send_keys(Keys.RETURN)
-        firstSite = driver.find_element_by_xpath('//*[@id="rso"]/div[1]/div/div/div/div/div[1]/a').get_attribute('href')
-        response = get(firstSite)
+        first_site = driver.find_element_by_xpath('//*[@id="rso"]/div[1]/div/div/div/div/div[1]/a').get_attribute('href')
+        response = get(first_site)
         code = response.status_code
         assert code == 200
