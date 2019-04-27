@@ -26,5 +26,4 @@ class TestOpenSite():
         driver.find_element_by_name('q').send_keys(Keys.RETURN)
         first_site = driver.find_element_by_xpath('//*[@id="rso"]/div[1]/div/div/div/div/div[1]/a').get_attribute('href')
         response = get(first_site)
-        code = response.status_code
-        assert code == 200
+        assert response.status_code == 200
